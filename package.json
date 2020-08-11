@@ -1,0 +1,51 @@
+{
+  "name": "lista-compra-backend",
+  "version": "1.0.0",
+  "description": "Lista de Compra",
+  "main": "src/server.js",
+  "scripts": {
+    "dev": "nodemon --exec babel-node src/server.js",
+    "build": "rm -rf dist && webpack && cp .env.production dist/.env && cp package.json dist/ && cp -r migrations dist/ && cp knexfile.js dist/ && cp pm2.json dist/",
+    "deploy": "npm install --only=prod && knex migrate:latest && pm2 startOrRestart pm2.json",
+    "undeploy": "pm2 delete pm2.json",
+    "latest": "knex migrate:latest",
+    "rollback": "knex migrate:rollback",
+    "rent": "knex migrate:make creditcard"
+  },
+  "author": "Pedro Costa",
+  "license": "ISC",
+  "devDependencies": {
+    "@babel/cli": "^7.1.5",
+    "@babel/core": "^7.1.5",
+    "@babel/node": "^7.0.0",
+    "@babel/preset-env": "^7.1.5",
+    "eslint": "^5.9.0",
+    "nodemon": "^1.18.6",
+    "webpack": "^4.26.1",
+    "webpack-cli": "^3.1.2",
+    "webpack-node-externals": "^1.7.2"
+  },
+  "dependencies": {
+    "axios": "^0.19.0",
+    "body-parser": "^1.18.3",
+    "chart.js": "^2.8.0",
+    "cors": "^2.8.5",
+    "dotenv": "^6.1.0",
+    "express": "^4.16.4",
+    "joi": "^14.1.0",
+    "jsonwebtoken": "^8.3.0",
+    "knex": "^0.15.2",
+    "knex-stringcase": "^0.2.0",
+    "multer": "^1.4.2",
+    "mysql": "^2.17.1",
+    "nodemailer": "^6.3.0",
+    "pg": "^7.12.1",
+    "sharp": "^0.23.4",
+    "winston": "^3.1.0",
+    "winston-daily-rotate-file": "^3.5.1",
+    "winston-transport": "^4.2.0"
+  },
+  "engines": {
+    "node": "12.13.0"
+  }
+}

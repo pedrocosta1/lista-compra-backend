@@ -1,0 +1,5 @@
+{
+  "name": "template-backend",
+  "script": "server.js",
+  "autorestart": true
+}
