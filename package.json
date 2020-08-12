@@ -10,7 +10,7 @@
     "undeploy": "pm2 delete pm2.json",
     "latest": "knex migrate:latest",
     "rollback": "knex migrate:rollback",
-    "rent": "knex migrate:make creditcard"
+    "estoque": "knex migrate:make estoque"
   },
   "author": "Pedro Costa",
   "license": "ISC",
